@@ -12,41 +12,51 @@
 
 function handValue (hand) {
   let intArray = [];
-   let result;
+   let result = 0;
+   let card;
   let num;
   for (var i = 0; i < hand.length; i++) {
-    let card = hand[i];
+    card = hand[i];
    
     // let result = hand[0];
     if (card === "1" || card === "2" ||card === "3" ||card === "4" ||card === "5" || card === "6" || card === "7" ||card === "8" ||card === "9" ||card === "10" ){
      num = parseInt(card);
      intArray.push(num);
-     console.log(card);
+    //  console.log(card);
     }
 
     if (card === "K" || card === "Q" || card === "J"){
       intArray.push(10);
-      console.log(intArray);
+      // console.log(intArray);
     
     }
-      result = intArray[0];
-      result = result + intArray[i+1];
       
+      // result = result + intArray[i];
       // console.log(intArray);
 
     if (result > 11 && card === "A"){
       intArray.push(1);
-      result = result + 1;
-      console.log(result);
+
+      // result = result + 1;
+      
 
     }
     if (result <= 11 && card === "A") {
       intArray.push(11);
-      result = result + 11;
-      console.log(result);
+      // result = result + 11
+      
+    }
+    
+    // console.log(intArray);
+    // console.log(intArray[i]);
+    // console.log(result);
+    result = result + intArray[i];
+    if (result > 21) {
+      result = result - 10;
     }
     
   }
+  
 
   return result;
 }
